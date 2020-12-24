@@ -42,7 +42,6 @@ You should aim for a value of 4.5 or greater. You’ll get a warning if
 the contrast between the colours is insufficient.
 
 ``` r
-library(coloratio)
 get_ratio("black", "grey10")
 #> Warning in get_ratio("black", "grey10"): Aim for a value of 4.5 or higher.
 #> [1] 1.206596

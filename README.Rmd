@@ -46,7 +46,6 @@ get_ratio("#000000", "white")
 You should aim for a value of 4.5 or greater. You'll get a warning if the contrast between the colours is insufficient.
 
 ```{r example-warning}
-library(coloratio)
 get_ratio("black", "grey10")
 ```
 
