@@ -29,7 +29,7 @@ remotes::install_github("matt-dray/coloratio")
 ## Example
 
 There is currently one function, which assesses the colour-contrast
-ratio of two user-provided colours. You can provide hex values, namee
+ratio of two user-provided colours. You can provide hex values, named
 colours, or both.
 
 ``` r
@@ -44,7 +44,7 @@ the contrast between the colours is insufficient.
 ``` r
 library(coloratio)
 get_ratio("black", "grey10")
-#> Warning in get_ratio("black", "grey10"): You should aim for a contrast ratio value of 4.5 or more.
+#> Warning in get_ratio("black", "grey10"): Aim for a value of 4.5 or higher.
 #> [1] 1.206596
 ```
 

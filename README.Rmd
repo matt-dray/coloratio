@@ -30,13 +30,13 @@ The ultimate aim is to create a tool for compliance with [WCAG 3.0](https://w3c.
 
 You can install the development version of {coloratio} from GitHub with:
 
-```{r install, message=FALSE, warning=FALSE}
+```{r install, eval=FALSE}
 remotes::install_github("matt-dray/coloratio")
 ```
 
 ## Example
 
-There is currently one function, which assesses the colour-contrast ratio of two user-provided colours. You can provide hex values, namee colours, or both.
+There is currently one function, which assesses the colour-contrast ratio of two user-provided colours. You can provide hex values, named colours, or both.
 
 ```{r example}
 library(coloratio)
