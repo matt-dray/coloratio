@@ -1,0 +1,15 @@
+Package: coloratio
+Title: Assess Color Contrast Ratios
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Matt",
+           family = "Dray",
+           role = c("aut", "cre"),
+           email = "mwdray@gmail.com")
+Description: Help choose accessible colour combinations based on W3C 
+    specifications.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
