@@ -35,7 +35,7 @@ get_ratio <- function(col1, col2, quiet = FALSE) {
   cr <- (d[2, "L"] + 0.05) / (d[1, "L"] + 0.05)
 
   if (!quiet & cr <= 4.5) {
-    warning("You should aim for a contrast ratio value of 4.5 or more.\n")
+    warning("Aim for a value of 4.5 or higher.\n")
   }
 
   return(cr)

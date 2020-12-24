@@ -22,28 +22,28 @@ or
 proof-of-concept.](https://www.repostatus.org/badges/latest/concept.svg)](https://www.repostatus.org/#concept)
 <!-- badges: end -->
 
-This work-in-progress package helps calculate colour contrast values so you can make decisions to improve the accessibility of text on block-coloured backgrounds.
+This work-in-progress package helps calculate colour-contrast values so you can make decisions to improve the visual accessibility of text on block-coloured backgrounds.
 
-The ultimate aim is to create a tool for helping to comply with [WCAG 3.0](https://w3c.github.io/silver/guidelines/).
+The ultimate aim is to create a tool for compliance with [WCAG 3.0](https://w3c.github.io/silver/guidelines/).
 
 ## Installation
 
 You can install the development version of {coloratio} from GitHub with:
 
-```{r install}
+```{r install, message=FALSE, warning=FALSE}
 remotes::install_github("matt-dray/coloratio")
 ```
 
 ## Example
 
-There is currently one function, which assesswa the colour-contrast ratio of two user-provided colours. You should aim for a value of 4.5 or greater. You can provide hex values, namee colours, or both.
+There is currently one function, which assesses the colour-contrast ratio of two user-provided colours. You can provide hex values, namee colours, or both.
 
 ```{r example}
 library(coloratio)
 get_ratio("#000000", "white")
 ```
 
-You'll get a warning if the contrast between the colours is insufficient.
+You should aim for a value of 4.5 or greater. You'll get a warning if the contrast between the colours is insufficient.
 
 ```{r example-warning}
 library(coloratio)
