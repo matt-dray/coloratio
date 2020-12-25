@@ -7,7 +7,8 @@
 cr_choose_bw(col_bg)
 }
 \arguments{
-\item{col_bg}{Hex value preceded by '#' or a named color.}
+\item{col_bg}{Background colour on which to overlay text. Hex value preceded
+by '#' or a named color.}
 }
 \value{
 A character value: "white" or "black".

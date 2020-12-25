@@ -19,6 +19,15 @@
 
 cr_get_ratio <- function(col_1, col_2, quiet = FALSE) {
 
+  if (class(col_1) != "character" | class(col_2) != "character" |
+      length(col_1) > 1 | length(col_2) > 1) {
+    stop("Color arguments must be single character values (hex or named).")
+  }
+
+  if (class(quiet) != "logical") {
+    stop("Argument 'quiet' must be TRUE or FALSE.")
+  }
+
   d <- t(col2rgb(c(col_1, col_2))) / 255
 
   d <- apply(
@@ -36,7 +45,7 @@ cr_get_ratio <- function(col_1, col_2, quiet = FALSE) {
   cr <- (d[2, "L"] + 0.05) / (d[1, "L"] + 0.05)
 
   if (!quiet & cr <= 4.5) {
-    warning("Aim for a value of 4.5 or higher.\n")
+    warning("Aim for a value of 4.5 or higher.")
   }
 
   return(cr)
@@ -49,7 +58,8 @@ cr_get_ratio <- function(col_1, col_2, quiet = FALSE) {
 #' black? Calculated as per \code{\link{cr_get_ratio}}. Defaults to black in the
 #' case of a tie.
 #'
-#' @param col_bg Hex value preceded by '#' or a named color.
+#' @param col_bg Background colour on which to overlay text. Hex value preceded
+#'     by '#' or a named color.
 #'
 #' @return A character value: "white" or "black".
 #' @export
@@ -57,6 +67,10 @@ cr_get_ratio <- function(col_1, col_2, quiet = FALSE) {
 #' @examples cr_choose_bw("grey90")
 
 cr_choose_bw <- function(col_bg) {
+
+  if (class(col_bg) != "character" | length(col_bg) > 1) {
+    stop("Color arguments must be single character values (hex or named).")
+  }
 
   w <- cr_get_ratio(col_bg, "white", quiet = TRUE)
   b <- cr_get_ratio(col_bg, "black", quiet = TRUE)
