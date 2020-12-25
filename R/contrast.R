@@ -8,8 +8,8 @@
 #' \href{w3.org/TR/WCAG/#dfn-relative-luminance}{WCAG} for more information
 #' about the calculation.
 #'
-#' @param col1 Hex value preceded by '#' or a named color.
-#' @param col2 Hex value preceded by '#' or a named color.
+#' @param col_1 Hex value preceded by '#' or a named color.
+#' @param col_2 Hex value preceded by '#' or a named color.
 #' @param quiet Whether to print warning when the ratio value is lower than 4.5.
 #'
 #' @return A double.

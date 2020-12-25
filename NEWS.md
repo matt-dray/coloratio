@@ -11,4 +11,3 @@
 
 * Added `get_ratio()` function.
 * Added NEWS, LICENSE, README.
-1

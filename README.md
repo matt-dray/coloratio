@@ -11,6 +11,11 @@ or
 proof-of-concept.](https://www.repostatus.org/badges/latest/concept.svg)](https://www.repostatus.org/#concept)
 <!-- badges: end -->
 
+*Update (2020-12-25): I discovered that the aim for this R package is
+already implemented in [the {savonliquide}
+package](https://github.com/feddelegrand7/savonliquide) by [Ihaddaden M.
+EL Fodil](https://twitter.com/moh_fodil).*
+
 This work-in-progress R package helps calculate color-contrast values so
 you can make decisions to improve the visual accessibility of text on
 block-colored backgrounds.
