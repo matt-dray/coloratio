@@ -12,11 +12,6 @@ proof-of-concept.](https://www.repostatus.org/badges/latest/concept.svg)](https:
 [![R-CMD-check](https://github.com/matt-dray/coloratio/workflows/R-CMD-check/badge.svg)](https://github.com/matt-dray/coloratio/actions)
 <!-- badges: end -->
 
-*Update (2020-12-25): I discovered that the aim for this R package is
-already implemented in [the {savonliquide}
-package](https://github.com/feddelegrand7/savonliquide) by [Ihaddaden M.
-El Fodil](https://twitter.com/moh_fodil).*
-
 This work-in-progress R package helps calculate color-contrast values so
 you can make decisions to improve the visual accessibility of text on
 block-colored backgrounds.
@@ -26,6 +21,12 @@ The ultimate aim is to create a tool for compliance with [WCAG
 
 Feel free to add an issue or a make a pull request. Please follow [the
 code of conduct](#conduct).
+
+*Update (2020-12-25): I discovered that [the {savonliquide}
+package](https://github.com/feddelegrand7/savonliquide) by [Ihaddaden M.
+El Fodil](https://twitter.com/moh_fodil) achieves the aims of this
+package using [the WebAIM contrast checker
+API](https://webaim.org/resources/contrastchecker/).*
 
 ## Installation
 

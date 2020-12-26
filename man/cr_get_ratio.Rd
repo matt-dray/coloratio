@@ -7,9 +7,11 @@
 cr_get_ratio(col_1, col_2, quiet = FALSE)
 }
 \arguments{
-\item{col_1}{Hex value preceded by '#' or a named color.}
+\item{col_1}{Six-digit hex value preceded by '#', or a named color from
+\code{\link[grDevices]{colors}}}
 
-\item{col_2}{Hex value preceded by '#' or a named color.}
+\item{col_2}{Six-digit hex value preceded by '#', or a named color from
+\code{\link[grDevices]{colors}}}
 
 \item{quiet}{Whether to print warning when the ratio value is lower than 4.5.}
 }

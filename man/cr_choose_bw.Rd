@@ -7,8 +7,8 @@
 cr_choose_bw(col_bg)
 }
 \arguments{
-\item{col_bg}{Background colour on which to overlay text. Hex value preceded
-by '#' or a named color.}
+\item{col_bg}{Background colour on which to overlay text. Six-digit hex value
+preceded by '#', or a named color from \code{\link[grDevices]{colors}}.}
 }
 \value{
 A character value: "white" or "black".
