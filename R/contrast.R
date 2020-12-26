@@ -28,7 +28,7 @@ cr_get_ratio <- function(col_1, col_2, quiet = FALSE) {
     stop("Argument 'quiet' must be TRUE or FALSE.")
   }
 
-  d <- t(col2rgb(c(col_1, col_2))) / 255
+  d <- t(grDevices::col2rgb(c(col_1, col_2))) / 255
 
   d <- apply(
     d, 2, function(x) ifelse(
