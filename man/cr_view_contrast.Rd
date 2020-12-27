@@ -12,8 +12,6 @@ cr_view_contrast(col_1, col_2)
 
 \item{col_2}{Six-digit hex value preceded by '#', or a named color from
 \code{\link[grDevices]{colors}}.}
-
-\item{text}{}
 }
 \value{
 Character value or vector.

@@ -162,7 +162,6 @@ cr_choose_color <- function(col, n = 1, ex_bw = FALSE) {
 #'     \code{\link[grDevices]{colors}}.
 #' @param col_2 Six-digit hex value preceded by '#', or a named color from
 #'     \code{\link[grDevices]{colors}}.
-#' @param text
 #'
 #' @return Character value or vector.
 #' @export
