@@ -24,7 +24,7 @@ code of conduct](#conduct).
 
 *Update (2020-12-25): I discovered that [the {savonliquide}
 package](https://github.com/feddelegrand7/savonliquide) by [Ihaddaden M.
-El Fodil](https://twitter.com/moh_fodil) achieves the aims of this
+El Fodil](https://twitter.com/moh_fodil) achieves the main aim of this
 package using [the WebAIM contrast checker
 API](https://webaim.org/resources/contrastchecker/).*
 
@@ -36,7 +36,7 @@ You can install the development version of {coloratio} from GitHub with:
 remotes::install_github("matt-dray/coloratio")
 ```
 
-## Example
+## Examples
 
 ### Get contrast ratio
 
@@ -79,6 +79,26 @@ cr_choose_bw("gray90")
 ```
 
 Black is chosen in the event of a tie and a warning is given.
+
+### Choose a high-contrast color
+
+You can use `cr_choose_color()` to check a user-supplied color against
+all named R colors and return those with greatest contrast.
+
+``` r
+cr_choose_color("midnightblue")
+# [1] "white"
+
+cr_choose_color(
+  col = "olivedrab",  # user-supplied color
+  n = 3,              # number of colours to return
+  ex_bw = TRUE        # exclude black, whites, grays?
+)
+# [1] "navy"     "navyblue" "blue4"
+```
+
+You have the option to exclude black, whites and grays from being
+returned because they’re boring.
 
 ## Code of Conduct
 

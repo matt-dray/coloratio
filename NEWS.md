@@ -1,3 +1,7 @@
+# coloratio 0.0.0.9002
+
+* Added `cr_choose_color()` function.
+
 # coloratio 0.0.0.9001
 
 * Added `cr_choose_bw()` function (#1).

@@ -34,23 +34,23 @@ cr_get_ratio <- function(col_1, col_2, quiet = FALSE) {
     stop("Argument 'quiet' must be TRUE or FALSE.")
   }
 
-  # Convert colours to RGB
+  # Convert colours to RGB and scale 0 to 1
   d <- t(grDevices::col2rgb(c(col_1, col_2))) / 255
 
-  # Generate sRGB values
+  # Convert value
   d <- apply(
     d, 2, function(x) ifelse(
       x <= 0.03928, x / 12.92, ((x + 0.055) / 1.055) ^ 2.4
     )
   )
 
-  # Calculate luminance values from RGB
+  # Calculate luminance values
   d <- as.data.frame(d)
   d$L <- (0.2126 * d$red) + (0.7152 * d$green) + (0.0722 * d$blue)
 
   # Calculate contrast ratio
   d <- d[order(d$L), ]
-  cr <- (d[2, "L"] + 0.05) / (d[1, "L"] + 0.05)  # higher value as denominator
+  cr <- (d[2, "L"] + 0.05) / (d[1, "L"] + 0.05)
 
   # Warn if contrast threshold not reached
   if (!quiet & cr <= 4.5) {
@@ -73,7 +73,7 @@ cr_get_ratio <- function(col_1, col_2, quiet = FALSE) {
 #' @return A character value: "white" or "black".
 #' @export
 #'
-#' @examples cr_choose_bw("grey90")
+#' @examples cr_choose_bw("gray90")
 
 cr_choose_bw <- function(col_bg) {
 
@@ -89,6 +89,55 @@ cr_choose_bw <- function(col_bg) {
   } else if (w == b) {
     warning("There's a tie. Black chosen.")
     result <- "black"
+  }
+
+  return(result)
+
+}
+
+#' Choose a High-Contrast Color for a Given Color
+#'
+#' Given a user-supplied color, what's a good color to pair it with for maximum
+#' contrast? Compares provided color against all named R colors, as per
+#' \code{\link[grDevices]{colors}}. Contrast calculated as per
+#' \code{\link{cr_get_ratio}}.
+#'
+#' @param col A character value representing a color. Can be a six-digit hex
+#'     value preceded by '#', or a named color from
+#'     \code{\link[grDevices]{colors}}.
+#' @param n Number of named colours to return. Color with highest contrast
+#'     is returned first.
+#' @param ex_bw Exclude black and variants of white and gray variants?
+#'
+#' @return Character value or vector.
+#' @export
+#'
+#' @examples cr_choose_color("lightyellow")
+
+cr_choose_color <- function(col, n = 1, ex_bw = FALSE) {
+
+  if (!n %in% 1:length(grDevices::colors())) {
+    stop(
+      "Arg 'n' can't be greater than the number of named colors (657).")
+  }
+
+  if (class(ex_bw) != "logical") {
+    stop("Argument 'ex_bw' must be TRUE or FALSE.")
+  }
+
+  # Calculate all contrast ratios against the named colors
+  ratios <- sapply(
+    grDevices::colors(),
+    function(x) cr_get_ratio(x, col, quiet = TRUE)
+  )
+
+  # Get the name of the result with the highest ratio
+  if (!ex_bw) {
+    result <- names(ratios[order(-ratios)][1:n])
+  } else if (ex_bw) {
+    bw_rgx <-  "black|white|grey|gray"
+    ratios_ex_bw <- ratios[!grepl(bw_rgx, names(ratios))]
+    result <- names(ratios_ex_bw[order(-ratios_ex_bw)][1:n])
   }
 
   return(result)

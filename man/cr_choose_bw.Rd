@@ -19,5 +19,5 @@ black? Calculated as per \code{\link{cr_get_ratio}}. Defaults to black in the
 case of a tie.
 }
 \examples{
-cr_choose_bw("grey90")
+cr_choose_bw("gray90")
 }

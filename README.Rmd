@@ -29,7 +29,7 @@ The ultimate aim is to create a tool for compliance with [WCAG 3.0](https://w3c.
 
 Feel free to add an issue or a make a pull request. Please follow [the code of conduct](#conduct).
 
-_Update (2020-12-25): I discovered that [the {savonliquide} package](https://github.com/feddelegrand7/savonliquide) by [Ihaddaden M. El Fodil](https://twitter.com/moh_fodil) achieves the aims of this package using [the WebAIM contrast checker API](https://webaim.org/resources/contrastchecker/)._
+_Update (2020-12-25): I discovered that [the {savonliquide} package](https://github.com/feddelegrand7/savonliquide) by [Ihaddaden M. El Fodil](https://twitter.com/moh_fodil) achieves the main aim of this package using [the WebAIM contrast checker API](https://webaim.org/resources/contrastchecker/)._
 
 ## Installation
 
@@ -39,7 +39,7 @@ You can install the development version of {coloratio} from GitHub with:
 remotes::install_github("matt-dray/coloratio")
 ```
 
-## Example
+## Examples
 
 ### Get contrast ratio
 
@@ -70,6 +70,22 @@ cr_choose_bw("gray90")
 ```
 
 Black is chosen in the event of a tie and a warning is given.
+
+### Choose a high-contrast color
+
+You can use `cr_choose_color()` to check a user-supplied color against all named R colors and return those with greatest contrast.
+
+```{r col-example}
+cr_choose_color("midnightblue")
+
+cr_choose_color(
+  col = "olivedrab",  # user-supplied color
+  n = 3,              # number of colours to return
+  ex_bw = TRUE        # exclude black, whites, grays?
+)
+```
+
+You have the option to exclude black, whites and grays from being returned because they're boring.
 
 ## Code of Conduct {#conduct}
 
