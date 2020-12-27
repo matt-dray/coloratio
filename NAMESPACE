@@ -3,3 +3,4 @@
 export(cr_choose_bw)
 export(cr_choose_color)
 export(cr_get_ratio)
+export(cr_view_contrast)

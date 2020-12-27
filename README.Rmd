@@ -58,6 +58,20 @@ cr_get_ratio("black", "grey10")
 
 [Read more about the calculation](https://www.w3.org/TR/WCAG/#dfn-relative-luminance) in the WCAG 2.1 guidance.
 
+### Colour contrast demo
+
+`cr_get_ratio()` also lets you view a plot of text on a block background using the supplied colors by setting `view = TRUE`.
+
+```{r demo-example, out.width='25%'}
+cr_get_ratio("#000000", "olivedrab", view = TRUE)
+```
+
+You can access this visual functionality in isolation with `cr_view_contrast()`.
+
+```{r demo-2-example, out.width='25%'}
+cr_view_contrast("blue4", "sienna1")
+```
+
 ### Choose black or white
 
 You may want to alter programmatically the color of overlaying elements when the underlying color varies. For example, when putting text over the bars of a grouped bar chart.

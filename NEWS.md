@@ -1,3 +1,7 @@
+# coloratio 0.0.0.9003
+
+* Added `cr_view_contrast()` function (#2).
+
 # coloratio 0.0.0.9002
 
 * Added `cr_choose_color()` function.

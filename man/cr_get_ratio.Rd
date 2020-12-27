@@ -4,7 +4,7 @@
 \alias{cr_get_ratio}
 \title{Get Contrast Ratio of Two Colors}
 \usage{
-cr_get_ratio(col_1, col_2, quiet = FALSE)
+cr_get_ratio(col_1, col_2, quiet = FALSE, view = FALSE)
 }
 \arguments{
 \item{col_1}{Six-digit hex value preceded by '#', or a named color from
@@ -14,6 +14,10 @@ cr_get_ratio(col_1, col_2, quiet = FALSE)
 \code{\link[grDevices]{colors}}}
 
 \item{quiet}{Whether to print warning when the ratio value is lower than 4.5.}
+
+\item{view}{Whether to plot a demonstration of col_1 text on a col_2
+background, and vice versa, for visual inspection. Uses
+\code{\link{cr_view_contrast}}.}
 }
 \value{
 A double.
