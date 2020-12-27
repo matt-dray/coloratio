@@ -2,21 +2,22 @@
 % Please edit documentation in R/contrast.R
 \name{cr_choose_bw}
 \alias{cr_choose_bw}
-\title{Choose White or Black for Text Overlaying Supplied Color}
+\title{Choose White or Black to Overlay a Supplied Underlying Color}
 \usage{
 cr_choose_bw(col_bg)
 }
 \arguments{
-\item{col_bg}{Background colour on which to overlay text. Six-digit hex value
-preceded by '#', or a named color from \code{\link[grDevices]{colors}}.}
+\item{col_bg}{Background colour on which to overlay black or white elements.
+Six-digit hex value preceded by '#', or a named color from
+\code{\link[grDevices]{colors}}.}
 }
 \value{
 A character value: "white" or "black".
 }
 \description{
-Given a background color, what's a better color for overlay text: white or
-black? Calculated as per \code{\link{cr_get_ratio}}. Defaults to black in the
-case of a tie.
+Given a background color, what's a better color for overlay elements: white
+or black? Calculated as per \code{\link{cr_get_ratio}}. Defaults to black in
+the case of a tie.
 }
 \examples{
 cr_choose_bw("gray90")

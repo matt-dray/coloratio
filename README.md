@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# coloratio
+# {coloratio}
 
 <!-- badges: start -->
 
@@ -13,14 +13,17 @@ proof-of-concept.](https://www.repostatus.org/badges/latest/concept.svg)](https:
 <!-- badges: end -->
 
 This work-in-progress R package helps calculate color-contrast values so
-you can make decisions to improve the visual accessibility of text on
-block-colored backgrounds.
+you can make decisions to improve the visual accessibility of your R
+outputs.
 
-The ultimate aim is to create a tool for compliance with [WCAG
+It was originally developed with the need for selecting high-contrast
+text colors for use on block-colored backgrounds. The ultimate aim is to
+create a tool for compliance with [WCAG
 3.0](https://w3c.github.io/silver/guidelines/).
 
 Feel free to add an issue or a make a pull request. Please follow [the
-code of conduct](#conduct).
+code of
+conduct](https://www.contributor-covenant.org/version/2/0/code_of_conduct/).
 
 *Update (2020-12-25): I discovered that [the {savonliquide}
 package](https://github.com/feddelegrand7/savonliquide) by [Ihaddaden M.
@@ -59,17 +62,17 @@ cr_get_ratio("black", "grey10")
 ```
 
 [Read more about the
-calculation](w3.org/TR/WCAG/#dfn-relative-luminance) in the WCAG 2.1
-guidance.
+calculation](https://www.w3.org/TR/WCAG/#dfn-relative-luminance) in the
+WCAG 2.1 guidance.
 
-### Choose black or white text
+### Choose black or white
 
-You may want to alter programmatically the colour of overlaying text
-when the underlying colour varies. For example, when putting text over
+You may want to alter programmatically the color of overlaying elements
+when the underlying color varies. For example, when putting text over
 the bars of a grouped bar chart.
 
 The function `cr_choose_bw()` returns `"white"` or `"black"` depending
-on which has the better contrast ratio with the user-supplied colour.
+on which has the better contrast ratio with the user-supplied color.
 
 ``` r
 cr_choose_bw("gray10")
@@ -91,7 +94,7 @@ cr_choose_color("midnightblue")
 
 cr_choose_color(
   col = "olivedrab",  # user-supplied color
-  n = 3,              # number of colours to return
+  n = 3,              # number of colors to return
   ex_bw = TRUE        # exclude black, whites, grays?
 )
 # [1] "navy"     "navyblue" "blue4"

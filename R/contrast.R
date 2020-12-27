@@ -61,14 +61,15 @@ cr_get_ratio <- function(col_1, col_2, quiet = FALSE) {
 
 }
 
-#' Choose White or Black for Text Overlaying Supplied Color
+#' Choose White or Black to Overlay a Supplied Underlying Color
 #'
-#' Given a background color, what's a better color for overlay text: white or
-#' black? Calculated as per \code{\link{cr_get_ratio}}. Defaults to black in the
-#' case of a tie.
+#' Given a background color, what's a better color for overlay elements: white
+#' or black? Calculated as per \code{\link{cr_get_ratio}}. Defaults to black in
+#' the case of a tie.
 #'
-#' @param col_bg Background colour on which to overlay text. Six-digit hex value
-#'     preceded by '#', or a named color from \code{\link[grDevices]{colors}}.
+#' @param col_bg Background colour on which to overlay black or white elements.
+#'     Six-digit hex value preceded by '#', or a named color from
+#'     \code{\link[grDevices]{colors}}.
 #'
 #' @return A character value: "white" or "black".
 #' @export
