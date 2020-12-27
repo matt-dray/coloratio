@@ -144,8 +144,8 @@ cr_choose_color <- function(col, n = 1, ex_bw = FALSE) {
   if (!ex_bw) {
     result <- names(ratios[order(-ratios)][1:n])
   } else if (ex_bw) {
-    bw_rgx <-  "black|white|grey|gray"
-    ratios_ex_bw <- ratios[!grepl(bw_rgx, names(ratios))]
+    bw_regex <-  "black|white|grey|gray"
+    ratios_ex_bw <- ratios[!grepl(bw_regex, names(ratios))]
     result <- names(ratios_ex_bw[order(-ratios_ex_bw)][1:n])
   }
 
@@ -181,10 +181,10 @@ cr_view_contrast <- function(col_1, col_2) {
   }
 
   # Reduce plot margins
-  par(mar = rep(1, 4))
+  graphics::par(mar = rep(1, 4))
 
   # Plot stacked bar
-  barplot(
+  graphics::barplot(
     matrix(c(1, 1)),
     col = c(col_2, col_1),
     border = "white",
@@ -192,7 +192,7 @@ cr_view_contrast <- function(col_1, col_2) {
   )
 
   # Add overlaying text
-  text(0.7, 0.5, paste(col_1, "\non", col_2), col = col_1, cex = 3)
-  text(0.7, 1.5, paste(col_2, "\non", col_1), col = col_2, cex = 3)
+  graphics::text(0.7, 0.5, paste(col_1, "\non", col_2), col = col_1, cex = 3)
+  graphics::text(0.7, 1.5, paste(col_2, "\non", col_1), col = col_2, cex = 3)
 
 }
