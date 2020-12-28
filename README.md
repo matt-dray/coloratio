@@ -10,6 +10,9 @@ yet, or the repository is only intended to be a limited example, demo,
 or
 proof-of-concept.](https://www.repostatus.org/badges/latest/concept.svg)](https://www.repostatus.org/#concept)
 [![R-CMD-check](https://github.com/matt-dray/coloratio/workflows/R-CMD-check/badge.svg)](https://github.com/matt-dray/coloratio/actions)
+[![Codecov test
+coverage](https://codecov.io/gh/matt-dray/coloratio/branch/main/graph/badge.svg)](https://codecov.io/gh/matt-dray/coloratio?branch=main)
+[![CodeFactor](https://www.codefactor.io/repository/github/matt-dray/coloratio/badge/main)](https://www.codefactor.io/repository/github/matt-dray/coloratio/overview/main)
 <!-- badges: end -->
 
 This work-in-progress R package helps calculate color-contrast values so
@@ -103,7 +106,7 @@ cr_choose_bw("gray90")
 # [1] "black"
 ```
 
-Black is chosen in the event of a tie and a warning is given.
+Black is chosen in the event of a tie.
 
 ### Choose a high-contrast color
 

@@ -1,6 +1,9 @@
 # coloratio 0.0.0.9003
 
 * Added `cr_view_contrast()` function (#2).
+* Added tests.
+* Added Codecov badge and GitHub Action for coverage.
+* Added CodeFactor badge.
 
 # coloratio 0.0.0.9002
 

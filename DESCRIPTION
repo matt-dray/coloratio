@@ -16,3 +16,7 @@ RoxygenNote: 7.1.1
 Imports:
     graphics,
     grDevices
+Suggests: 
+    covr (>= 3.5.1),
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3

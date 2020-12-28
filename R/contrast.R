@@ -93,10 +93,7 @@ cr_choose_bw <- function(col_bg) {
   # Higher value means higher contrast
   if (w > b) {
     result <- "white"
-  } else if (w < b) {
-    result <- "black"
-  } else if (w == b) {
-    warning("There's a tie. Black chosen.\n")
+  } else if (w < b | w == b) {  # ties default to black
     result <- "black"
   }
 
@@ -125,9 +122,8 @@ cr_choose_bw <- function(col_bg) {
 
 cr_choose_color <- function(col, n = 1, ex_bw = FALSE) {
 
-  if (!n %in% 1:length(grDevices::colors())) {
-    stop(
-      "Arg 'n' can't be greater than the number of named colors (657).\n")
+  if (class(n) != "numeric" | n < 1) {
+    stop("'n' must be a positive numeric value.\n")
   }
 
   if (class(ex_bw) != "logical") {
