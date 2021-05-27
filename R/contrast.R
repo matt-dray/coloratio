@@ -27,10 +27,10 @@ cr_get_ratio <- function(col_1, col_2, quiet = FALSE, view = FALSE) {
   if(
     (!grepl("^#", col_1) & !col_1 %in% grDevices::colors() |
      !grepl("^#", col_2) & !col_2 %in% grDevices::colors()) |
-    (grepl("^#", col_1) & !grepl("^#\\w{6}$", col_1) |
-     grepl("^#", col_2) & !grepl("^#\\w{6}$", col_2))
+    (grepl("^#", col_1) & !grepl("^#[0-9a-fA-F]{6}$", col_1) |
+     grepl("^#", col_2) & !grepl("^#[0-9a-fA-F]{6}$", col_2))
   ) {
-    stop("Inputs must match colors() if named, or the hex form #RRGGBB.\n")
+    stop('Inputs must be in colors() if named, or of the hex form "#RRGGBB".\n')
   }
 
   if (class(quiet) != "logical") {
