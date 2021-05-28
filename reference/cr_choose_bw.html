@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Choose White or Black to Overlay a Supplied Underlying Color — cr_choose_bw • coloratio</title>
+<title>Choose White or Black to Overlay On a Supplied Background Color — cr_choose_bw • coloratio</title>
 
 
 <!-- jquery -->
@@ -39,10 +39,11 @@
 
 
 
-<meta property="og:title" content="Choose White or Black to Overlay a Supplied Underlying Color — cr_choose_bw" />
-<meta property="og:description" content="Given a background color, what's a better color for overlay elements: white
-or black? Calculated as per cr_get_ratio. Defaults to black in
-the case of a tie." />
+<meta property="og:title" content="Choose White or Black to Overlay On a Supplied Background Color — cr_choose_bw" />
+<meta property="og:description" content="Selects whether black or white has the greater contrast with a user-
+supplied color. Useful for choosing a text color to overlay on a block-color
+background, like value labels over the bars of a bar chart. Calculated as per
+cr_get_ratio. Defaults to black in the case of a tie." />
 
 
 
@@ -74,7 +75,7 @@ the case of a tie." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">coloratio</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9003</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9004</span>
       </span>
     </div>
 
@@ -108,15 +109,16 @@ the case of a tie." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Choose White or Black to Overlay a Supplied Underlying Color</h1>
+    <h1>Choose White or Black to Overlay On a Supplied Background Color</h1>
     
     <div class="hidden name"><code>cr_choose_bw.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Given a background color, what's a better color for overlay elements: white
-or black? Calculated as per <code><a href='cr_get_ratio.html'>cr_get_ratio</a></code>. Defaults to black in
-the case of a tie.</p>
+    <p>Selects whether black or white has the greater contrast with a user-
+supplied color. Useful for choosing a text color to overlay on a block-color
+background, like value labels over the bars of a bar chart. Calculated as per
+<code><a href='cr_get_ratio.html'>cr_get_ratio</a></code>. Defaults to black in the case of a tie.</p>
     </div>
 
     <pre class="usage"><span class='fu'>cr_choose_bw</span><span class='op'>(</span><span class='va'>col_bg</span><span class='op'>)</span></pre>
@@ -126,19 +128,21 @@ the case of a tie.</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>col_bg</th>
-      <td><p>Background colour on which to overlay black or white elements.
-Six-digit hex value preceded by '#', or a named color from
+      <td><p>A character vector of colors against which to select either
+black or white, whichever has maximum contrast. Supply colors as
+six-digit hex values preceded by '#', or named colors from
 <code><a href='https://rdrr.io/r/grDevices/colors.html'>colors</a></code>.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A character value: "white" or "black".</p>
+    <p>A character vector of values "black" or "white". The length matches
+the input.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>cr_choose_bw</span><span class='op'>(</span><span class='st'>"gray90"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "black"</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>cr_choose_bw</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"white"</span>, <span class='st'>"gray90"</span>, <span class='st'>"gray50"</span>, <span class='st'>"gray10"</span>, <span class='st'>"black"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "black" "black" "black" "white" "white"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
