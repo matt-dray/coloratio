@@ -1,3 +1,9 @@
+# coloratio 0.0.0.9004
+
+* Corrected regex for hex values (thanks to @EllaKaye).
+* Vectorised `cr_choose_bw()` (#12) and gave README example of vector input.
+* Change 'colour' to 'color' throughout.
+
 # coloratio 0.0.0.9003
 
 * Added `cr_view_contrast()` function (#2).

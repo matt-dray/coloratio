@@ -37,7 +37,7 @@ cr_get_ratio <- function(col_1, col_2, quiet = FALSE, view = FALSE) {
     stop("Argument 'quiet' must be TRUE or FALSE.\n")
   }
 
-  # Convert colours to RGB and scale 0 to 1
+  # Convert colous to RGB and scale 0 to 1
   d <- t(grDevices::col2rgb(c(col_1, col_2))) / 255
 
   # Convert value
@@ -69,35 +69,34 @@ cr_get_ratio <- function(col_1, col_2, quiet = FALSE, view = FALSE) {
 
 }
 
-#' Choose White or Black to Overlay a Supplied Underlying Color
+#' Choose White or Black to Overlay On a Supplied Background Color
 #'
-#' Given a background color, what's a better color for overlay elements: white
-#' or black? Calculated as per \code{\link{cr_get_ratio}}. Defaults to black in
-#' the case of a tie.
+#' Selects whether black or white has the greater contrast with a user-
+#' supplied color. Useful for choosing a text color to overlay on a block-color
+#' background, like value labels over the bars of a bar chart. Calculated as per
+#' \code{\link{cr_get_ratio}}. Defaults to black in the case of a tie.
 #'
-#' @param col_bg Background colour on which to overlay black or white elements.
-#'     Six-digit hex value preceded by '#', or a named color from
+#' @param col_bg A character vector of colors against which to select either
+#'     black or white, whichever has maximum contrast. Supply colors as
+#'     six-digit hex values preceded by '#', or named colors from
 #'     \code{\link[grDevices]{colors}}.
 #'
-#' @return A character value: "white" or "black".
+#' @return A character vector of values "black" or "white". The length matches
+#'     the input.
+#'
 #' @export
 #'
-#' @examples cr_choose_bw("gray90")
+#' @examples cr_choose_bw(c("white", "gray90", "gray50", "gray10", "black"))
 
 cr_choose_bw <- function(col_bg) {
 
-  # Calculate contrast ratios against black and white
-  w <- cr_get_ratio(col_bg, "white", quiet = TRUE)
-  b <- cr_get_ratio(col_bg, "black", quiet = TRUE)
-
-  # Higher value means higher contrast
-  if (w > b) {
-    result <- "white"
-  } else if (w < b | w == b) {  # ties default to black
-    result <- "black"
-  }
-
-  return(result)
+  # Choose "black" or "white" for each element of col_bg, return vector
+  vapply(
+    col_bg,
+    .choose_bw_one,
+    character(1),
+    USE.NAMES = FALSE
+  )
 
 }
 
@@ -110,12 +109,11 @@ cr_choose_bw <- function(col_bg) {
 #'
 #' @param col A character value representing a color. Can be a six-digit hex
 #'     value preceded by '#', or a named color from
-#'     \code{\link[grDevices]{colors}}.
-#' @param n Number of named colours to return. Color with highest contrast
+#' @param n Number of named colors to return. Color with highest contrast
 #'     is returned first.
 #' @param ex_bw Exclude black and variants of white and gray variants?
 #'
-#' @return Character value or vector.
+#' @return A character value that's a named R color.
 #' @export
 #'
 #' @examples cr_choose_color("lightyellow")
@@ -151,7 +149,7 @@ cr_choose_color <- function(col, n = 1, ex_bw = FALSE) {
 
 #' Plot a Demo of User-Supplied Color Pair
 #'
-#' Plots text of one colour on a background of another colour, and vice versa.
+#' Plots text of one color on a background of another color, and vice versa.
 #' Used to visualise contrasts.
 #'
 #' @param col_1 Six-digit hex value preceded by '#', or a named color from

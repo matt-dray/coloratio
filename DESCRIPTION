@@ -1,12 +1,12 @@
 Package: coloratio
 Title: Assess Color Contrast Ratios for Accessibility
-Version: 0.0.0.9003
+Version: 0.0.0.9004
 Authors@R: 
     person(given = "Matt",
            family = "Dray",
            role = c("aut", "cre"),
            email = "mwdray@gmail.com")
-Description: Tools to help choose accessible colour combinations based on W3C 
+Description: Tools to help choose accessible color combinations based on W3C 
     specifications.
 License: MIT + file LICENSE
 Encoding: UTF-8

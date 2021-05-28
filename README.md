@@ -31,12 +31,14 @@ Feel free to add an issue or a make a pull request. Please follow [the
 code of
 conduct](https://www.contributor-covenant.org/version/2/0/code_of_conduct/).
 
-*Update (2020-12-25): I discovered that [the {savonliquide}
+## Similar tools
+
+[The {savonliquide}
 package](https://github.com/feddelegrand7/savonliquide) by [Ihaddaden M.
 El Fodil](https://twitter.com/moh_fodil) achieves the main aim of this
 package using [the WebAIM contrast checker
 API](https://webaim.org/resources/contrastchecker/). It’s [available on
-CRAN](https://CRAN.R-project.org/package=savonliquide).*
+CRAN](https://CRAN.R-project.org/package=savonliquide).
 
 ## Installation
 
@@ -72,7 +74,7 @@ cr_get_ratio("black", "grey10")
 calculation](https://www.w3.org/TR/WCAG/#dfn-relative-luminance) in the
 WCAG 2.1 guidance.
 
-### Colour contrast demo
+### Color contrast demo
 
 `cr_get_ratio()` also lets you view a plot of text on a block background
 using the supplied colors by setting `view = TRUE`.
@@ -104,10 +106,9 @@ The function `cr_choose_bw()` returns `"white"` or `"black"` depending
 on which has the better contrast ratio with the user-supplied color.
 
 ``` r
-cr_choose_bw("gray10")
-# [1] "white"
-cr_choose_bw("gray90")
-# [1] "black"
+# Supply a character vector, receive a character vector
+cr_choose_bw(c("gray10", "gray90", "lightyellow"))
+# [1] "white" "black" "black"
 ```
 
 Black is chosen in the event of a tie.
@@ -130,7 +131,7 @@ cr_choose_color(
 ```
 
 You have the option to exclude black, whites and grays from being
-returned because they’re boring.
+returned (via the `ex_bw` argument) because they’re boring.
 
 ## Code of Conduct
 

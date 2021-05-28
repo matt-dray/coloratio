@@ -33,7 +33,9 @@ It was originally developed with the need for selecting high-contrast text color
 
 Feel free to add an issue or a make a pull request. Please follow [the code of conduct](https://www.contributor-covenant.org/version/2/0/code_of_conduct/).
 
-_Update (2020-12-25): I discovered that [the {savonliquide} package](https://github.com/feddelegrand7/savonliquide) by [Ihaddaden M. El Fodil](https://twitter.com/moh_fodil) achieves the main aim of this package using [the WebAIM contrast checker API](https://webaim.org/resources/contrastchecker/). It's [available on CRAN](https://CRAN.R-project.org/package=savonliquide)._
+## Similar tools
+
+[The {savonliquide} package](https://github.com/feddelegrand7/savonliquide) by [Ihaddaden M. El Fodil](https://twitter.com/moh_fodil) achieves the main aim of this package using [the WebAIM contrast checker API](https://webaim.org/resources/contrastchecker/). It's [available on CRAN](https://CRAN.R-project.org/package=savonliquide).
 
 ## Installation
 
@@ -62,7 +64,7 @@ cr_get_ratio("black", "grey10")
 
 [Read more about the calculation](https://www.w3.org/TR/WCAG/#dfn-relative-luminance) in the WCAG 2.1 guidance.
 
-### Colour contrast demo
+### Color contrast demo
 
 `cr_get_ratio()` also lets you view a plot of text on a block background using the supplied colors by setting `view = TRUE`.
 
@@ -83,8 +85,8 @@ You may want to alter programmatically the color of overlaying elements when the
 The function `cr_choose_bw()` returns `"white"` or `"black"` depending on which has the better contrast ratio with the user-supplied color.
 
 ```{r bw-example-gray}
-cr_choose_bw("gray10")
-cr_choose_bw("gray90")
+# Supply a character vector, receive a character vector
+cr_choose_bw(c("gray10", "gray90", "lightyellow"))
 ```
 
 Black is chosen in the event of a tie.
@@ -103,7 +105,7 @@ cr_choose_color(
 )
 ```
 
-You have the option to exclude black, whites and grays from being returned because they're boring.
+You have the option to exclude black, whites and grays from being returned (via the `ex_bw` argument) because they're boring.
 
 ## Code of Conduct {#conduct}
 

@@ -2,23 +2,26 @@
 % Please edit documentation in R/contrast.R
 \name{cr_choose_bw}
 \alias{cr_choose_bw}
-\title{Choose White or Black to Overlay a Supplied Underlying Color}
+\title{Choose White or Black to Overlay On a Supplied Background Color}
 \usage{
 cr_choose_bw(col_bg)
 }
 \arguments{
-\item{col_bg}{Background colour on which to overlay black or white elements.
-Six-digit hex value preceded by '#', or a named color from
+\item{col_bg}{A character vector of colors against which to select either
+black or white, whichever has maximum contrast. Supply colors as
+six-digit hex values preceded by '#', or named colors from
 \code{\link[grDevices]{colors}}.}
 }
 \value{
-A character value: "white" or "black".
+A character vector of values "black" or "white". The length matches
+the input.
 }
 \description{
-Given a background color, what's a better color for overlay elements: white
-or black? Calculated as per \code{\link{cr_get_ratio}}. Defaults to black in
-the case of a tie.
+Selects whether black or white has the greater contrast with a user-
+supplied color. Useful for choosing a text color to overlay on a block-color
+background, like value labels over the bars of a bar chart. Calculated as per
+\code{\link{cr_get_ratio}}. Defaults to black in the case of a tie.
 }
 \examples{
-cr_choose_bw("gray90")
+cr_choose_bw(c("white", "gray90", "gray50", "gray10", "black"))
 }
