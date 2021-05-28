@@ -17,7 +17,7 @@ cr_view_contrast(col_1, col_2)
 Character value or vector.
 }
 \description{
-Plots text of one colour on a background of another colour, and vice versa.
+Plots text of one color on a background of another color, and vice versa.
 Used to visualise contrasts.
 }
 \examples{

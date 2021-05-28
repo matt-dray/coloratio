@@ -8,16 +8,15 @@ cr_choose_color(col, n = 1, ex_bw = FALSE)
 }
 \arguments{
 \item{col}{A character value representing a color. Can be a six-digit hex
-value preceded by '#', or a named color from
-\code{\link[grDevices]{colors}}.}
+value preceded by '#', or a named color from}
 
-\item{n}{Number of named colours to return. Color with highest contrast
+\item{n}{Number of named colors to return. Color with highest contrast
 is returned first.}
 
 \item{ex_bw}{Exclude black and variants of white and gray variants?}
 }
 \value{
-Character value or vector.
+A character value that's a named R color.
 }
 \description{
 Given a user-supplied color, what's a good color to pair it with for maximum

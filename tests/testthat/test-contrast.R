@@ -11,6 +11,14 @@ test_that("cr_choose_bw() expected outputs are returned", {
   expect_identical(cr_choose_bw("black"), "white")
   expect_identical(cr_choose_bw("white"), "black")
 
+  expect_type(cr_choose_bw(c("black", "white")), "character")
+  expect_identical(cr_choose_bw(c("black", "white")), c("white", "black"))
+  expect_length(cr_choose_bw(c("black", "white")), 2)
+
+  expect_type(cr_choose_bw(list("black", "white")), "character")
+  expect_identical(cr_choose_bw(list("black", "white")), c("white", "black"))
+  expect_length(cr_choose_bw(list("black", "white")), 2)
+
 })
 
 test_that("cr_choose_color() expected outputs are returned", {
